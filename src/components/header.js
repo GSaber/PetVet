@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { AuthContext } from "../context/AuthContext";
 import "../assets/css/header.scss";
 import { IoMdArrowDropdown } from "react-icons/io";
@@ -13,12 +13,13 @@ const Header = () => {
     signOut(auth)
       .then(() => {
         // Sign-out successful.
-        navigate("login");
+        navigate("/login");
       })
       .catch((error) => {
         // An error happened.
       });
   };
+
   return (
     <div className="navbar">
       <h3>PetVet</h3>
