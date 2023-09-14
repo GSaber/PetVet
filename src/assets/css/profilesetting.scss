@@ -1,0 +1,14 @@
+/* profilesettings Styles */
+
+form {
+  display: flex;
+  width: 60%;
+  align-items: normal;
+  flex-direction: column;
+  gap: 20px;
+  padding: 50px;
+  button {
+    margin: 0 auto;
+    width: 60%;
+  }
+}
