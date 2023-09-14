@@ -11,13 +11,13 @@ const Home = () => {
         <div className="container">
           <div>
             <h1>
-              Welcome {currentUser?.displayName} Prenez rapidement un
-              rendez-vous avec votre médecin !
+              Welcome "{currentUser?.displayName}" Make an appointment with your
+              Veterinary Rapidly!
             </h1>
             <p>
-              Sélectionnez votre médecin, choisissez la date et l'heure de votre
-              rdv et recevez votre sms/mail de confirmation. C’est aussi simple
-              que ça !
+              Select your doctor, choose the date and time of your appointment
+              and receive your confirmation text/email. It's that simple only
+              that !
             </p>
           </div>
           <img src={require("../assets/img/imghome.jpg")} />
