@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/PetVet/static/css/main.5f55e47d.css",
-    "main.js": "/PetVet/static/js/main.c64bd430.js",
+    "main.css": "/PetVet/static/css/main.f17e2cf5.css",
+    "main.js": "/PetVet/static/js/main.49d59580.js",
     "static/media/authbackground1.jpg": "/PetVet/static/media/authbackground1.bab1f1969b036c0f1511.jpg",
     "static/media/imghome.jpg": "/PetVet/static/media/imghome.e913807aea8891637b3b.jpg",
     "index.html": "/PetVet/index.html",
-    "main.5f55e47d.css.map": "/PetVet/static/css/main.5f55e47d.css.map",
-    "main.c64bd430.js.map": "/PetVet/static/js/main.c64bd430.js.map"
+    "main.f17e2cf5.css.map": "/PetVet/static/css/main.f17e2cf5.css.map",
+    "main.49d59580.js.map": "/PetVet/static/js/main.49d59580.js.map"
   },
   "entrypoints": [
-    "static/css/main.5f55e47d.css",
-    "static/js/main.c64bd430.js"
+    "static/css/main.f17e2cf5.css",
+    "static/js/main.49d59580.js"
   ]
 }
