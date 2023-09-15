@@ -152,7 +152,7 @@ const Booking = () => {
       <div className="booking-container">
         <nav>navigation</nav>
         {petType ? (
-          <div>
+          <div className={`appointment-concerns ${petType ? "fade" : ""}`}>
             <h1>What are your concerns?</h1>
             <div className="concerns">
               {concerns.slice(0, shoMoreConcerns).map((concern, x) => (
@@ -168,8 +168,17 @@ const Booking = () => {
                 </div>
               ))}
             </div>
-            <button>Find vets</button>
-            <div className="start-over " onClick={() => setPetType("")}>
+            <a onClick={() => setShoMoreConcerns(concerns.length)}>
+              + Show more
+            </a>
+            <button disabled={petConcern.length === 0}>Find vets</button>
+            <div
+              className="start-over "
+              onClick={() => {
+                setPetType("");
+                setShoMoreConcerns(10);
+              }}
+            >
               <GiBackwardTime
                 style={{ color: "black", height: "20px", width: "20px" }}
               />
@@ -177,7 +186,7 @@ const Booking = () => {
             </div>
           </div>
         ) : (
-          <div>
+          <div className="appointment-pets fade">
             <h1>Who is the appointment for?</h1>
             <div className="pets">
               {pets.slice(0, showMore).map((pet, x) => (
