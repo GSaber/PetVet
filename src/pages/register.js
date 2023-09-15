@@ -40,7 +40,6 @@ const Register = () => {
         // IdP data available using getAdditionalUserInfo(result)
         // ...
         navigate("/");
-        console.log("user", user, "token", token, "credential", credential);
       })
       .catch((error) => {
         // Handle Errors here.

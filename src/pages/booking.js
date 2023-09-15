@@ -145,7 +145,6 @@ const Booking = () => {
       setPetConcern([...petConcern, concern]);
     }
   };
-  console.log(petConcern);
   return (
     <>
       <Header />
