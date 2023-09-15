@@ -1,3 +1,18 @@
+@mixin mobile {
+  @media screen and (max-width: 480px) {
+    @content;
+  }
+}
+@mixin tablet {
+  @media screen and (max-width: 1200px) {
+    @content;
+  }
+}
+@mixin laptop {
+  @media screen and (max-width: 1200px) {
+    @content;
+  }
+}
 .navbar {
   background-color: #2ab7a9;
   display: flex;
@@ -51,6 +66,8 @@
         overflow: hidden;
         z-index: 1;
         padding: 0 10px;
+        width: -webkit-fill-available;
+
         /* Links inside the dropdown */
         a {
           float: none;
@@ -81,6 +98,26 @@
         align-items: center;
         justify-content: center;
         gap: 10px;
+      }
+    }
+  }
+  @include mobile() {
+    padding-right: 0;
+    h3 {
+      display: none;
+    }
+    nav {
+      display: contents;
+      width: 100%;
+      a {
+        font-weight: 700;
+        float: left;
+      }
+      .dropdown {
+        float: right;
+        .dropdown-content {
+          width: -webkit-fill-available;
+        }
       }
     }
   }
