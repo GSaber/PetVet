@@ -3,6 +3,7 @@ import { AuthContext } from "../context/AuthContext";
 import Header from "../components/header";
 import "../assets/css/home.scss";
 import { AiOutlineCalendar } from "react-icons/ai";
+import { Link } from "react-router-dom";
 const Home = () => {
   const { currentUser } = useContext(AuthContext);
   return (
@@ -20,10 +21,10 @@ const Home = () => {
               and receive your confirmation text/email. It's that simple only
               that !
             </p>
-            <a className="book-now-btn" href="/booking">
+            <Link className="book-now-btn" to={"/booking"}>
               <AiOutlineCalendar />
               Book an online vet now
-            </a>
+            </Link>
           </div>
           <img src={require("../assets/img/imghome.jpg")} alt="" />
         </div>

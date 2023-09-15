@@ -1,3 +1,18 @@
+@mixin mobile {
+  @media screen and (max-width: 480px) {
+    @content;
+  }
+}
+@mixin tablet {
+  @media screen and (max-width: 1200px) {
+    @content;
+  }
+}
+@mixin laptop {
+  @media screen and (max-width: 1200px) {
+    @content;
+  }
+}
 .homepage {
   .container {
     display: flex;
@@ -34,6 +49,16 @@
     img {
       width: 325px;
       height: 292px;
+    }
+  }
+  @include mobile() {
+    .container {
+      padding: 0 10px;
+      flex-direction: column;
+      text-align: center;
+      img {
+        display: none;
+      }
     }
   }
 }

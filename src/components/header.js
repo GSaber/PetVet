@@ -24,7 +24,7 @@ const Header = () => {
     <div className="navbar">
       <h3>PetVet</h3>
       <nav>
-        <a href="/">Home</a>
+        <Link to={"/"}>Home</Link>
 
         <div className="dropdown">
           <button className="dropbtn">
@@ -36,7 +36,7 @@ const Header = () => {
           </button>
           <div className="dropdown-content">
             <Link to={"/profile"}>Profile</Link>
-            <a href="#">appointments</a>
+            <Link to={"#"}>Appointements</Link>
             <button className="logout" onClick={handleSignOut}>
               Logout
             </button>

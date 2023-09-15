@@ -1,3 +1,18 @@
+@mixin mobile {
+  @media screen and (max-width: 480px) {
+    @content;
+  }
+}
+@mixin tablet {
+  @media screen and (max-width: 1200px) {
+    @content;
+  }
+}
+@mixin laptop {
+  @media screen and (max-width: 1200px) {
+    @content;
+  }
+}
 .App {
   text-align: center;
 }
@@ -45,6 +60,7 @@
   justify-content: center;
   background: url("./assets/img/authbackground1.jpg") no-repeat center;
   background-size: cover;
+
   .formWrapper {
     background-color: white;
     padding: 20px 60px;
@@ -90,6 +106,23 @@
       .error {
         text-align: center;
         color: red;
+      }
+    }
+  }
+}
+@include mobile() {
+  .formContainer {
+    width: 100vw;
+    height: 100vh;
+    .formWrapper {
+      padding: 0;
+      width: 95%;
+      form {
+        padding: 10px 0;
+        gap: 15px;
+        input {
+          width: 100%;
+        }
       }
     }
   }
