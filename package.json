@@ -1,5 +1,6 @@
 {
   "name": "petvet",
+  "homepage": " https://gsaber.github.io/PetVet",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
