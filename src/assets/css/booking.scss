@@ -162,4 +162,81 @@
       color: #6b7280;
     }
   }
+  .veterinary {
+    text-align: left;
+    p {
+      color: gray;
+    }
+    .vets {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+
+      .vet {
+        width: 30%;
+        border: 1px solid gray;
+        border-radius: 5px;
+        display: flex;
+        flex-direction: column;
+        .vet-info {
+          display: flex;
+          flex-direction: column;
+          padding: 10px 20px;
+          border-bottom: 1px solid gray;
+          gap: 10px;
+          cursor: pointer;
+
+          img {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+          }
+          .full-name {
+            font-weight: bold;
+            color: #2ab7a9;
+          }
+          span {
+            color: gray;
+          }
+          .rating {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            color: #e74694;
+            font-size: 16px;
+            font-weight: 700;
+          }
+        }
+        .available-date {
+          display: flex;
+          flex-direction: column;
+          padding: 10px 20px;
+          gap: 10px;
+          button {
+            display: flex;
+            justify-content: space-between;
+            background-color: transparent;
+            border: 1px solid gray;
+            padding: 5px 10px;
+            border-radius: 9999px;
+            font-size: 16px;
+            cursor: pointer;
+            .date {
+              color: #2ab7a9;
+              font-weight: 500;
+            }
+          }
+          .more {
+            border: #2ab7a9 solid 1px;
+            padding: 10px 20px;
+            color: #2ab7a9;
+            &:hover {
+              background-color: #2ab7a928;
+            }
+          }
+        }
+      }
+    }
+  }
 }

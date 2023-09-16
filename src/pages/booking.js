@@ -25,7 +25,7 @@ import {
   GiWhistle,
   GiBackwardTime,
 } from "react-icons/gi";
-import { AiFillBug } from "react-icons/ai";
+import { AiFillBug, AiOutlineStar, AiFillStar } from "react-icons/ai";
 import { CiBandage } from "react-icons/ci";
 import { FaUserDoctor } from "react-icons/fa6";
 const Booking = () => {
@@ -129,6 +129,36 @@ const Booking = () => {
       icon: <FaUserDoctor style={{ height: "25px", width: "25px" }} />,
     },
   ]);
+  const vets = [
+    {
+      name: "Dr. John Doe",
+      degree: "Veterinarian, MRCVS 7393637",
+      degreeSchool: "Dentist",
+      img: "profile.jpg",
+      rating: 5.0,
+    },
+    {
+      name: "Dr. John Doe",
+      degree: "Veterinarian, MRCVS 7393637",
+      degreeSchool: "Dentist",
+      img: "profile.jpg",
+      rating: 5.0,
+    },
+    {
+      name: "Dr. John Doe",
+      degree: "Veterinarian, MRCVS 7393637",
+      degreeSchool: "Dentist",
+      img: "profile.jpg",
+      rating: 5.0,
+    },
+    {
+      name: "Dr. John Doe",
+      degree: "Veterinarian, MRCVS 7393637",
+      degreeSchool: "Dentist",
+      img: "profile.jpg",
+      rating: 5.0,
+    },
+  ];
   const handleSelect = (x) => {
     if (x === 2) {
       setPets((current) => current.filter((pet) => pet.name !== "Show more"));
@@ -149,7 +179,35 @@ const Booking = () => {
     <>
       <Header />
       <div className="booking-container">
-        <nav>navigation</nav>
+        <div className="veterinary">
+          <h1>We found available vets just for you.</h1>
+          <p>Choose a vet to learn more and continue.</p>
+          <div className="vets">
+            {vets.map((vet, x) => (
+              <div className="vet">
+                <div className="vet-info">
+                  <img src={require(`../assets/img/${vet.img}`)} alt="" />
+                  <span className="full-name">{vet.name}</span>
+                  <span>
+                    {vet.degree} • {vet.degreeSchool}
+                  </span>
+                  <span className="rating">
+                    <AiFillStar />
+                    {parseFloat(vet.rating).toFixed(1)}
+                  </span>
+                </div>
+                <div className="available-date">
+                  <button>
+                    <span className="date">Today at 18:00</span>
+                    <span className="price">TND 70</span>
+                  </button>
+                  <button className="more">More time slots available</button>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+        {/* <nav>navigation</nav>
         {petType ? (
           <div className={`appointment-concerns ${petType ? "fade" : ""}`}>
             <h1>What are your concerns?</h1>
@@ -196,7 +254,7 @@ const Booking = () => {
               ))}
             </div>
           </div>
-        )}
+        )} */}
       </div>
     </>
   );
