@@ -6,6 +6,7 @@ import { AiOutlineCalendar } from "react-icons/ai";
 import { Link } from "react-router-dom";
 const Home = () => {
   const { currentUser } = useContext(AuthContext);
+  console.log("user", currentUser);
   return (
     <>
       <Header />

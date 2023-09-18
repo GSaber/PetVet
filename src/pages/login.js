@@ -1,27 +1,23 @@
 import React, { useState } from "react";
+import { signInWithEmailAndPassword } from "firebase/auth";
 import { useNavigate, Link } from "react-router-dom";
+import { auth } from "../firebase";
 const Login = () => {
   const navigate = useNavigate();
   const [errorMessage, setErrorMessage] = useState("");
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const email = e.target.email.value;
     const pwd = e.target.pwd.value;
-    console.log(email, pwd);
-    // signInWithEmailAndPassword(auth, email, pwd)
-    //   .then((userCredential) => {
-    //     // Signed in
-    //     // const user = userCredential.user;
-    //     // ...
-    navigate("/");
-    //   })
-    //   .catch((error) => {
-    //     const errorCode = error.code;
-    //     const errorMessage = error.message;
-    //     setErrorMessage(errorCode);
-    //     console.log(errorMessage);
-    //   });
+    try {
+      await signInWithEmailAndPassword(auth, email, pwd);
+      navigate("/");
+    } catch (error) {
+      const errorMessage = error.message;
+      setErrorMessage(errorMessage);
+    }
   };
+
   return (
     <div className="formContainer">
       <div className="formWrapper">
@@ -40,7 +36,7 @@ const Login = () => {
             placeholder="Insert your password"
           />
           <button>Login</button>
-          {/* {errorMessage && <span className="error">{errorMessage}</span>} */}
+          {errorMessage && <span className="error">{errorMessage}</span>}
         </form>
         <p>
           You dont have an account? <Link to="/register">Register</Link>

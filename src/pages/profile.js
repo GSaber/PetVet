@@ -13,7 +13,7 @@ const Profile = () => {
       <Header />
       <div className="profile">
         <div className="userInfo">
-          <img src={currentUser?.photoURL} alt="/" />
+          {currentUser?.photoURL && <img src={currentUser?.photoURL} alt="/" />}
           <span>{currentUser?.displayName}</span>
           <span>{currentUser?.email}</span>
 

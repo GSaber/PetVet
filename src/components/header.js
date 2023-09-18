@@ -19,7 +19,6 @@ const Header = () => {
         // An error happened.
       });
   };
-
   return (
     <div className="navbar">
       <h3>PetVet</h3>
@@ -30,7 +29,9 @@ const Header = () => {
           <button className="dropbtn">
             <div className="user">
               <span>{currentUser?.displayName}</span>
-              <img src={currentUser?.photoURL} alt="" />
+              {currentUser?.photoURL && (
+                <img src={currentUser?.photoURL} alt="" />
+              )}
               <IoMdArrowDropdown />
             </div>
           </button>

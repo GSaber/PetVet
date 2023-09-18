@@ -1,32 +1,51 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { auth, provider } from "../firebase";
-import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import { auth, db, provider } from "../firebase";
+import {
+  signInWithPopup,
+  GoogleAuthProvider,
+  createUserWithEmailAndPassword,
+  updateProfile,
+} from "firebase/auth";
+import { doc, setDoc } from "firebase/firestore";
 const Register = () => {
   const navigate = useNavigate();
   const [errorMessage, setErrorMessage] = useState("");
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    const displayName = e.target.displayName.value;
     const email = e.target.email.value;
     const pwd = e.target.pwd.value;
     const confirmPwd = e.target.confirmPwd.value;
-
-    if (pwd === confirmPwd) {
-      //   createUserWithEmailAndPassword(auth, email, pwd)
-      //     .then((userCredential) => {
-      //       // Signed in
-      //       // const user = userCredential.user;
-      //       // ...
-      //       navigate("/");
-      //     })
-      //     .catch((error) => {
-      //       const errorCode = error.code;
-      //       const errorMessage = error.message;
-      //       setErrorMessage(errorCode);
-      //       console.log(errorMessage);
-      //     });
+    if (displayName.length !== 0) {
+      console.log(displayName.length);
+      if (pwd === confirmPwd) {
+        try {
+          const res = await createUserWithEmailAndPassword(auth, email, pwd);
+          // Signed in
+          // const user = userCredential.user;
+          // ...
+          await setDoc(doc(db, "users", res.user.uid), {
+            uid: res.user.uid,
+            displayName,
+            email,
+            photoURL: "",
+          });
+          await updateProfile(res.user, {
+            displayName,
+          });
+          navigate("/");
+        } catch (error) {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          setErrorMessage(errorCode);
+          console.log(errorCode, errorMessage);
+        }
+      } else {
+        setErrorMessage("Password do not match");
+      }
     } else {
-      setErrorMessage("Password do not match");
+      setErrorMessage("Fill the DisplayName field");
     }
   };
   const handleGoogleSignIn = () => {
@@ -58,6 +77,8 @@ const Register = () => {
       <div className="formWrapper">
         <h1>Register</h1>
         <form onSubmit={handleSubmit}>
+          <input type="text" id="displayName" placeholder="Display name" />
+
           <input
             type="email"
             id="email"
@@ -77,7 +98,8 @@ const Register = () => {
             placeholder="Confirm your password"
             onChange={() => setErrorMessage("")}
           />
-          <button>Login</button>
+
+          <button>Register</button>
           {errorMessage && <span className="error">{errorMessage}</span>}
         </form>
         <p>
